@@ -2,87 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>COSTUMES</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masquerade & Co. | Premium Costumes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-50 font-sans">
 
-<header>
-    <h1>COSTUMES</h1>
+    <nav class="bg-black text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tighter">MASQUERADE<span class="text-purple-500">&CO.</span></h1>
+            <div class="space-x-6 hidden md:block">
+                <a href="#shop" class="hover:text-purple-400">Shop All</a>
+                <a href="#" class="hover:text-purple-400">New Arrivals</a>
+                <a href="#" class="hover:text-purple-400 text-red-400">Sale</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+    </nav>
 
-</header>
+    <header class="relative h-[500px] flex items-center justify-center text-center text-white bg-gray-900">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative z-10 px-4">
+            <h2 class="text-5xl md:text-7xl font-extrabold mb-4">BE ANYONE.</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">High-quality, professional-grade costumes for every occasion. From cinematic replicas to vintage classics.</p>
+            <a href="#shop" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition-all">Shop the Collection</a>
+        </div>
+    </header>
 
-<section>
-    <h2>About the Department of COSTUMES</h2>
-    <p>
-        ✨ Elevate your look with this stunning costume, crafted to combine comfort with eye-catching design.
-        The outfit features a flowing silhouette made from high-quality fabric that feels soft against the skin,
-        while intricate detailing adds a touch of sophistication.
-        Its vibrant colors and carefully tailored fit make it perfect for stage performances, themed parties,
-        or festive celebrations. Lightweight yet durable, this costume ensures ease of movement without compromising on style.
-        Whether you’re dressing for a cultural event or simply want to stand out, this piece offers elegance, versatility, and lasting appeal.
+    <section id="shop" class="container mx-auto py-16 px-4">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <h3 class="text-3xl font-bold">Featured Outfits</h3>
+                <p class="text-gray-500">Hand-picked by our stylists</p>
+            </div>
+            <button class="text-purple-600 font-semibold">View All →</button>
+        </div>
 
-    </p>
-</section>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="group cursor-pointer">
+                <div class="relative overflow-hidden rounded-xl bg-gray-200 h-80">
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-400">Image Placeholder</div>
+                    <button class="absolute bottom-4 left-4 right-4 bg-white text-black py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity font-bold">Quick Add</button>
+                </div>
+                <h4 class="mt-4 font-bold">The Galactic Knight</h4>
+                <p class="text-gray-600">$129.00</p>
+            </div>
 
-<section>
-    <h2>Shirts</h2>
-    <p>
-        Beutiful evre made
-        
-    </p>
-</section>
+            <div class="group cursor-pointer">
+                <div class="relative overflow-hidden rounded-xl bg-gray-200 h-80">
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-400">Image Placeholder</div>
+                    <button class="absolute bottom-4 left-4 right-4 bg-white text-black py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity font-bold">Quick Add</button>
+                </div>
+                <h4 class="mt-4 font-bold">Cyberpunk Renegade</h4>
+                <p class="text-gray-600">$85.00</p>
+            </div>
 
-<section>
-    <h2>Pants</h2>
-    <ul>
-        <li>Dr. Ramesh Kumar (HOD)</li>
-        <li>Prof. Neha S</li>
-        <li>Prof. Arjun K</li>
-        <li>Prof. Divya P</li>
-        <li>Prof. Nithin V</li>
-    </ul>
-</section>
+            <div class="group cursor-pointer">
+                <div class="relative overflow-hidden rounded-xl bg-gray-200 h-80">
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-400">Image Placeholder</div>
+                    <button class="absolute bottom-4 left-4 right-4 bg-white text-black py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity font-bold">Quick Add</button>
+                </div>
+                <h4 class="mt-4 font-bold">Victorian Vampire</h4>
+                <p class="text-gray-600">$110.00</p>
+            </div>
 
-<section>
-    <h2>Facilities</h2>
-    <ul>
-        <li>Programming Lab</li>
-        <li>AI & ML Lab</li>
-        <li>Data Science Lab</li>
-        <li>Project Lab</li>
-    </ul>
-</section>
+            <div class="group cursor-pointer">
+                <div class="relative overflow-hidden rounded-xl bg-gray-200 h-80">
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-400">Image Placeholder</div>
+                    <button class="absolute bottom-4 left-4 right-4 bg-white text-black py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity font-bold">Quick Add</button>
+                </div>
+                <h4 class="mt-4 font-bold">Ancient Empress</h4>
+                <p class="text-gray-600">$95.00</p>
+            </div>
+        </div>
+    </section>
 
-<section>
-    <h2>Last Year Placements</h2>
-    <table border="1">
-        <tr>
-            <th>Company</th>
-            <th>Students Placed</th>
-        </tr>
-        <tr>
-            <td>Google</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>TCS</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td>Infosys</td>
-            <td>18</td>
-        </tr>
-        <tr>
-            <td>Wipro</td>
-            <td>12</td>
-        </tr>
-    </table>
-</section>
-
-<footer>
-    <p>&copy; 2026 GEC Palakkad - CSE Department</p>
-</footer>
+    <footer class="bg-gray-100 border-t py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-600">© 2026 Masquerade & Co. Created for the bold.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
