@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+}
+
+.header {
+    background: linear-gradient(90deg, #004aad, #007bff);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 80px;
+}
+
+.navbar {
+    background: #222;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    color: #00d4ff;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px;
+    background: #e3f2fd;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+/* Fix text alignment issues */
+.header {
+    text-align: center;
+}
+
+.subtitle {
+    margin-top: -10px;
+    font-size: 14px;
+}
+
+.hero {
+    text-align: center;
+}
+
+.content {
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+.about-text {
+    text-align: justify;
+    margin: 15px 0;
+}
+
+.principal {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-img {
+    display: block;
+    margin: 20px auto;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.dept-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.dept-list li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.dept-list li a {
+    text-decoration: none;
+    color: #004aad;
+    font-weight: bold;
+}
+
+.dept-list li a:hover {
+    color: #007bff;
+}
