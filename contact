@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+<body>
+
+<header class="header">
+<h1>Contact Us</h1>
+</header>
+
+<nav class="navbar">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="courses.html">Courses</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="content">
+<h2>Registration Form</h2>
+<form onsubmit="return validateForm()" class="form">
+<input type="text" id="name" placeholder="Enter Name"><br>
+<input type="email" id="email" placeholder="Enter Email"><br>
+<button type="submit">Submit</button>
+</form>
+</section>
+
+<footer>
+<p>&copy; 2026 GEC Palakkad</p>
+</footer>
+
+</body>
+</html>
