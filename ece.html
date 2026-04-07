@@ -1,95 +1,734 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ECE Department - ABC College</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURUM \u2014 Luxury Accessories</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FAF7F2;
+    --gold: #C9A84C;
+    --gold-light: #E8D5A3;
+    --deep: #1A1714;
+    --charcoal: #3A3530;
+    --muted: #8C8278;
+    --border: rgba(201,168,76,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--deep);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: multiply;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transition: transform 0.25s ease, width 0.2s, height 0.2s;
+    mix-blend-mode: multiply;
+  }
+  body:hover .cursor-ring { opacity: 1; }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 60px;
+    background: rgba(250,247,242,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    animation: fadeDown 1s ease both;
+  }
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:none; } }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 300;
+    letter-spacing: 0.35em;
+    color: var(--deep);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex; gap: 42px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transform-origin: right;
+    transition: transform 0.35s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  .nav-actions {
+    display: flex; align-items: center; gap: 22px;
+  }
+  .nav-icon {
+    font-size: 1rem; color: var(--charcoal);
+    background: none; border: none; cursor: none;
+    transition: color 0.3s; position: relative;
+  }
+  .nav-icon:hover { color: var(--gold); }
+  .cart-badge {
+    position: absolute; top: -6px; right: -8px;
+    width: 16px; height: 16px;
+    background: var(--gold); color: var(--warm-white);
+    border-radius: 50%; font-size: 0.55rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Jost', sans-serif; font-weight: 400;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 90px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative; z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    animation: fadeUp 1s 0.3s ease both;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 40px; height: 1px; background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--deep);
+    animation: fadeUp 1s 0.45s ease both;
+  }
+  .hero-title em {
+    font-style: italic; color: var(--gold);
+    display: block;
+  }
+
+  .hero-desc {
+    margin-top: 28px;
+    font-size: 0.9rem; line-height: 1.85;
+    color: var(--muted); max-width: 420px;
+    animation: fadeUp 1s 0.6s ease both;
+  }
+
+  .hero-ctas {
+    margin-top: 48px;
+    display: flex; gap: 20px; align-items: center;
+    animation: fadeUp 1s 0.75s ease both;
+  }
+
+  .btn-primary {
+    background: var(--deep); color: var(--cream);
+    border: none; padding: 16px 40px;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: none; transition: background 0.3s, transform 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+  .btn-ghost {
+    background: transparent; color: var(--charcoal);
+    border: 1px solid var(--border); padding: 15px 36px;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: none; transition: border-color 0.3s, color 0.3s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-visual {
+    position: relative; overflow: hidden;
+    animation: fadeIn 1.2s 0.2s ease both;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:none; } }
+
+  .hero-img-wrap {
+    width: 100%; height: 100%;
+    background: var(--cream);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .hero-product-showcase {
+    width: 75%; aspect-ratio: 3/4;
+    background: linear-gradient(145deg, #E8DFD0 0%, #D4C4A8 40%, #BFA882 100%);
+    position: relative;
+    box-shadow: 30px 30px 80px rgba(26,23,20,0.15);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+
+  .product-icon-hero {
+    font-size: 8rem; opacity: 0.35;
+    filter: sepia(1) saturate(0.5);
+    animation: floatAnim 6s ease-in-out infinite;
+  }
+  @keyframes floatAnim {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-18px) rotate(3deg); }
+  }
+
+  .hero-label {
+    position: absolute; bottom: 40px; left: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--charcoal);
+  }
+  .hero-label span { display: block; font-size: 0.68rem; font-family: 'Jost'; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+
+  .hero-badge {
+    position: absolute; top: 40px; right: -20px;
+    width: 100px; height: 100px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--warm-white);
+    font-family: 'Cormorant Garamond', serif;
+    animation: spinBadge 20s linear infinite;
+  }
+  @keyframes spinBadge { to { transform: rotate(360deg); } }
+  .hero-badge-inner {
+    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); text-align: center; line-height: 1.6;
+    animation: counterSpin 20s linear infinite;
+  }
+  @keyframes counterSpin { to { transform: rotate(-360deg); } }
+
+  /* MARQUEE */
+  .marquee-section {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    overflow: hidden; background: var(--cream);
+  }
+  .marquee-track {
+    display: flex; gap: 0;
+    animation: marquee 22s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-item {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--muted); padding: 0 40px;
+    display: flex; align-items: center; gap: 40px;
+  }
+  .marquee-item::after { content: '\u2726'; color: var(--gold); font-size: 0.5rem; }
+
+  /* SECTION HEADER */
+  .section-header {
+    text-align: center; margin-bottom: 64px;
+  }
+  .section-eyebrow {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+  }
+  .section-eyebrow::before, .section-eyebrow::after {
+    content: ''; width: 30px; height: 1px; background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300; color: var(--deep);
+    line-height: 1.15;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* CATEGORIES */
+  .categories {
+    padding: 110px 80px;
+  }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+
+  .cat-card {
+    position: relative; overflow: hidden;
+    cursor: none;
+    background: var(--cream);
+  }
+  .cat-card:first-child {
+    grid-row: span 2;
+  }
+
+  .cat-card-inner {
+    height: 100%;
+    min-height: 260px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 36px;
+    background: linear-gradient(to top, rgba(26,23,20,0.6) 0%, transparent 60%);
+    position: relative; z-index: 2;
+  }
+  .cat-card:first-child .cat-card-inner { min-height: 560px; }
+
+  .cat-bg {
+    position: absolute; inset: 0; z-index: 1;
+    transition: transform 0.6s ease;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem;
+  }
+  .cat-card:first-child .cat-bg { font-size: 9rem; }
+  .cat-card:hover .cat-bg { transform: scale(1.06); }
+
+  .cat-bg-1 { background: linear-gradient(135deg, #C9A84C22, #8B6914); }
+  .cat-bg-2 { background: linear-gradient(135deg, #3A353022, #5C4033); }
+  .cat-bg-3 { background: linear-gradient(135deg, #C9A84C11, #A89060); }
+  .cat-bg-4 { background: linear-gradient(135deg, #1A171422, #3A3530); }
+  .cat-bg-5 { background: linear-gradient(135deg, #C9A84C15, #7A6040); }
+
+  .cat-tag {
+    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 8px;
+  }
+  .cat-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 300;
+    color: var(--warm-white); line-height: 1.1;
+  }
+  .cat-card:first-child .cat-name { font-size: 2.8rem; }
+  .cat-count {
+    font-size: 0.7rem; color: rgba(245,240,232,0.6);
+    margin-top: 6px; letter-spacing: 0.1em;
+  }
+
+  .cat-arrow {
+    position: absolute; top: 28px; right: 28px; z-index: 3;
+    width: 36px; height: 36px; border: 1px solid rgba(245,240,232,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--warm-white); font-size: 0.8rem;
+    opacity: 0; transform: scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .cat-card:hover .cat-arrow { opacity: 1; transform: scale(1); }
+
+  /* FEATURED PRODUCTS */
+  .products {
+    padding: 110px 80px;
+    background: var(--cream);
+  }
+
+  .filter-bar {
+    display: flex; gap: 8px; justify-content: center;
+    margin-bottom: 60px;
+  }
+  .filter-btn {
+    padding: 9px 24px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    background: transparent; border: 1px solid var(--border);
+    color: var(--muted); cursor: none;
+    transition: all 0.3s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--deep); color: var(--cream); border-color: var(--deep);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .product-card {
+    background: var(--warm-white);
+    position: relative;
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover { transform: translateY(-8px); }
+
+  .product-img {
+    aspect-ratio: 3/4;
+    background: var(--cream);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .product-emoji {
+    font-size: 4.5rem;
+    transition: transform 0.4s ease;
+    filter: sepia(0.3);
+  }
+  .product-card:hover .product-emoji { transform: scale(1.12) rotate(5deg); }
+
+  .product-overlay {
+    position: absolute; inset: 0;
+    background: rgba(26,23,20,0.04);
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .product-card:hover .product-overlay { opacity: 1; }
+
+  .overlay-btn {
+    background: var(--warm-white); border: none;
+    width: 42px; height: 42px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: none; font-size: 0.95rem;
+    transform: translateY(10px); transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 20px rgba(26,23,20,0.12);
+  }
+  .product-card:hover .overlay-btn { transform: translateY(0); }
+  .overlay-btn:hover { background: var(--gold); }
+  .overlay-btn:nth-child(2) { transition-delay: 0.05s; }
+
+  .product-tag-new {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--gold); color: var(--cream);
+    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 5px 12px;
+  }
+  .product-tag-sale {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--deep); color: var(--cream);
+    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 5px 12px;
+  }
+
+  .wishlist-btn {
+    position: absolute; top: 16px; right: 16px;
+    background: transparent; border: none;
+    font-size: 1.1rem; cursor: none;
+    transition: transform 0.2s;
+  }
+  .wishlist-btn:hover { transform: scale(1.25); }
+
+  .product-info { padding: 20px 0 8px; }
+  .product-brand {
+    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 400;
+    color: var(--deep); margin-bottom: 10px; line-height: 1.3;
+  }
+  .product-price {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .price-current {
+    font-size: 0.95rem; font-weight: 400; color: var(--charcoal);
+  }
+  .price-old {
+    font-size: 0.8rem; color: var(--muted); text-decoration: line-through;
+  }
+
+  .add-to-cart {
+    width: 100%; margin-top: 16px;
+    background: transparent; border: 1px solid var(--border);
+    padding: 11px;
+    font-family: 'Jost', sans-serif; font-size: 0.65rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--charcoal); cursor: none;
+    transition: all 0.3s;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 0.3s, transform 0.3s, background 0.3s, color 0.3s;
+  }
+  .product-card:hover .add-to-cart { opacity: 1; transform: none; }
+  .add-to-cart:hover { background: var(--deep); color: var(--cream); border-color: var(--deep); }
+
+  /* EDITORIAL STRIP */
+  .editorial {
+    padding: 0 80px 110px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    margin: 0 80px;
+  }
+
+  .editorial-text {
+    padding: 80px 60px 80px 0;
+    border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .editorial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 300; font-style: italic;
+    line-height: 1.5; color: var(--deep);
+    margin-bottom: 32px;
+  }
+  .editorial-quote::before { content: '\201C'; color: var(--gold); font-size: 4rem; line-height: 0; vertical-align: -1.2rem; margin-right: 8px; }
+
+  .editorial-author {
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 40px;
+  }
+
+  .editorial-visual {
+    padding: 80px 0 80px 60px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .editorial-img-block {
+    width: 80%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(145deg, #D4C4A8, #A89060);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    box-shadow: 20px 20px 60px rgba(26,23,20,0.1);
+  }
+  .editorial-img-block::after {
+    content: 'SS 2025'; position: absolute;
+    bottom: -14px; right: -14px;
+    background: var(--deep); color: var(--cream);
+    padding: 14px 22px; font-size: 0.6rem; letter-spacing: 0.3em;
+    text-transform: uppercase; font-family: 'Jost';
+  }
+  .editorial-emoji { font-size: 6rem; filter: sepia(0.4); }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: var(--deep);
+    padding: 90px 80px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .newsletter::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 40px,
+      rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 41px
+    );
+  }
+
+  .newsletter-eyebrow {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+    position: relative; z-index: 2;
+  }
+  .newsletter-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300; color: var(--cream);
+    margin-bottom: 14px; line-height: 1.2;
+    position: relative; z-index: 2;
+  }
+  .newsletter-title em { font-style: italic; color: var(--gold); }
+  .newsletter-sub {
+    font-size: 0.85rem; color: rgba(245,240,232,0.5);
+    margin-bottom: 44px; position: relative; z-index: 2;
+  }
+  .newsletter-form {
+    display: flex; justify-content: center; gap: 0;
+    position: relative; z-index: 2; max-width: 480px; margin: 0 auto;
+  }
+  .newsletter-form input {
+    flex: 1; padding: 17px 24px;
+    background: rgba(245,240,232,0.08);
+    border: 1px solid rgba(201,168,76,0.3); border-right: none;
+    color: var(--cream); font-family: 'Jost'; font-size: 0.8rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .newsletter-form input::placeholder { color: rgba(245,240,232,0.3); letter-spacing: 0.1em; }
+  .newsletter-form input:focus { border-color: var(--gold); }
+  .newsletter-form button {
+    padding: 17px 32px;
+    background: var(--gold); border: none; color: var(--deep);
+    font-family: 'Jost'; font-size: 0.65rem; letter-spacing: 0.22em;
+    text-transform: uppercase; cursor: none;
+    transition: background 0.3s;
+  }
+  .newsletter-form button:hover { background: var(--gold-light); }
+
+  /* FOOTER */
+  footer {
+    padding: 70px 80px 40px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px; margin-bottom: 60px;
+  }
+  .footer-brand .nav-logo { font-size: 1.6rem; display: block; margin-bottom: 18px; text-decoration: none; }
+  .footer-tagline {
+    font-size: 0.82rem; line-height: 1.8; color: var(--muted);
+    max-width: 280px;
+  }
+  .footer-col h4 {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--deep); margin-bottom: 22px; font-weight: 500;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 12px; }
+  .footer-col ul li a {
+    font-size: 0.82rem; color: var(--muted); text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-col ul li a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border); padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 0.72rem; color: var(--muted); }
+  .footer-socials { display: flex; gap: 18px; }
+  .social-link {
+    width: 34px; height: 34px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 0.85rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .social-link:hover { border-color: var(--gold); transform: translateY(-3px); }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 40px; right: 40px; z-index: 1000;
+    background: var(--deep); color: var(--cream);
+    padding: 16px 28px; font-size: 0.75rem; letter-spacing: 0.12em;
+    border-left: 3px solid var(--gold);
+    transform: translateX(120%); transition: transform 0.4s ease;
+    font-family: 'Jost';
+  }
+  .toast.show { transform: translateX(0); }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+  .reveal-d4 { transition-delay: 0.4s; }
+
+  @media (max-width: 1100px) {
+    nav { padding: 22px 32px; }
+    .hero-text { padding: 60px 32px; }
+    .categories, .products { padding: 80px 32px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .editorial { margin: 0 32px; padding: 0 32px 80px; }
+    .newsletter { padding: 70px 32px; }
+    footer { padding: 60px 32px 32px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .nav-links { display: none; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .cat-card:first-child { grid-row: span 1; }
+    .editorial { grid-template-columns: 1fr; margin: 0 24px; }
+    .editorial-text { border-right: none; padding-right: 0; }
+    .editorial-visual { display: none; }
+    .product-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-<header>
-    <h1>Electronics and Communication Engineering</h1>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-</header>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">AUR<span>U</span>M</a>
+  <ul class="nav-links">
+    <li><a href="#categories">Collections</a></li>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#">Lookbook</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon">\ud83d\udd0d</button>
+    <button class="nav-icon" style="position:relative;">
+      \ud83d\udecd\ufe0f <span class="cart-badge" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
 
-<section>
-    <h2>About the Department</h2>
-    <p>
-        The Department of Electronics and Communication Engineering (ECE) focuses on
-        developing skilled engineers in the field of electronics, communication systems,
-        and modern technologies. The department provides strong theoretical and practical
-        knowledge to prepare students for industry and higher studies.
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">New Season 2025</div>
+    <h1 class="hero-title">
+      Adorn the<br>
+      <em>Extraordinary</em>
+    </h1>
+    <p class="hero-desc">
+      Curated accessories for the discerning individual. Each piece crafted with intent \u2014 where timeless elegance meets modern sensibility.
     </p>
+    <div class="hero-ctas">
+      <a href="#products" class="btn-primary">Explore Collection</a>
+      <a href="#categories" class="btn-ghost">View Lookbook</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-wrap">
+      <div class="hero-product-showcase">
+        <div class="product-icon-hero">\ud83d\udc5c</div>
+        <div class="hero-label">
+          <span>Featured Piece</span>
+          Signature Tote, Camel
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-inner">NEW<br>IN</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-    <h2>Vision</h2>
-    <p>
-        To be a center of academic excellence imparting knowledge and skills in Electronics
-        and Communication Engineering for employment, higher education, and entrepreneurship.
-    </p>
-</section>
-
-<section>
-    <h2>Faculty Members</h2>
-    <ul>
-        <li>Dr. Anil Kumar (HOD)</li>
-        <li>Prof. Sreeja R</li>
-        <li>Prof. Rahul N</li>
-        <li>Prof. Meera S</li>
-        <li>Prof. Ajith P</li>
-    </ul>
-</section>
-
-<section>
-    <h2>Facilities</h2>
-    <ul>
-        <li>Digital Electronics Lab</li>
-        <li>Communication Systems Lab</li>
-        <li>Microprocessor Lab</li>
-        <li>Project Lab</li>
-    </ul>
-</section>
-
-<section>
-    <h2>Last Year Placements</h2>
-    <table border="1">
-        <tr>
-            <th>Company</th>
-            <th>No. of Students Placed</th>
-        </tr>
-        <tr>
-            <td>TCS</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <td>Infosys</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Wipro</td>
-            <td>8</td>
-        </tr>
-        <tr>
-            <td>Tech Mahindra</td>
-            <td>6</td>
-        </tr>
-    </table>
-</section>
-
-<section>
-    <h2>Highlights</h2>
-    <ul>
-        <li>Industry-oriented training programs</li>
-        <li>Workshops and seminars</li>
-        <li>Strong placement support</li>
-        <li>Experienced faculty</li>
-    </ul>
-</section>
-
-<footer>
-    <p>&copy; 2026 GEC Palakkad - ECE Department</p>
-</footer>
-
-</body>
-</html>
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item">Handcrafted Excellence</div>
+    <div class="marquee-item">Free Shipping Over $150</div>
+    <div class="marquee-item">Sustainable Materials</div>
+    <div class="marquee-item">Limited Editions</div>
+    <div class="marquee-item">30-Day Returns</div>
+    <div class="marquee-item">Artisanal Quality</div>
+    <div class="marquee-item">New Season Arrivals</div>
+    
