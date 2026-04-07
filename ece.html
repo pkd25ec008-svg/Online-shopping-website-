@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURUM \u2014 Luxury Accessories</title>
+<title>AURUM — Luxury Accessories</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -258,7 +258,7 @@
     color: var(--muted); padding: 0 40px;
     display: flex; align-items: center; gap: 40px;
   }
-  .marquee-item::after { content: '\u2726'; color: var(--gold); font-size: 0.5rem; }
+  .marquee-item::after { content: '✦'; color: var(--gold); font-size: 0.5rem; }
 
   /* SECTION HEADER */
   .section-header {
@@ -619,116 +619,4 @@
     width: 34px; height: 34px; border: 1px solid var(--border);
     display: flex; align-items: center; justify-content: center;
     text-decoration: none; font-size: 0.85rem;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .social-link:hover { border-color: var(--gold); transform: translateY(-3px); }
-
-  /* TOAST */
-  .toast {
-    position: fixed; bottom: 40px; right: 40px; z-index: 1000;
-    background: var(--deep); color: var(--cream);
-    padding: 16px 28px; font-size: 0.75rem; letter-spacing: 0.12em;
-    border-left: 3px solid var(--gold);
-    transform: translateX(120%); transition: transform 0.4s ease;
-    font-family: 'Jost';
-  }
-  .toast.show { transform: translateX(0); }
-
-  /* SCROLL REVEAL */
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
-  .reveal-d4 { transition-delay: 0.4s; }
-
-  @media (max-width: 1100px) {
-    nav { padding: 22px 32px; }
-    .hero-text { padding: 60px 32px; }
-    .categories, .products { padding: 80px 32px; }
-    .product-grid { grid-template-columns: repeat(2, 1fr); }
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .editorial { margin: 0 32px; padding: 0 32px 80px; }
-    .newsletter { padding: 70px 32px; }
-    footer { padding: 60px 32px 32px; }
-  }
-
-  @media (max-width: 768px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-    .nav-links { display: none; }
-    .cat-grid { grid-template-columns: 1fr; }
-    .cat-card:first-child { grid-row: span 1; }
-    .editorial { grid-template-columns: 1fr; margin: 0 24px; }
-    .editorial-text { border-right: none; padding-right: 0; }
-    .editorial-visual { display: none; }
-    .product-grid { grid-template-columns: 1fr 1fr; }
-    .footer-top { grid-template-columns: 1fr; }
-  }
-</style>
-</head>
-<body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">AUR<span>U</span>M</a>
-  <ul class="nav-links">
-    <li><a href="#categories">Collections</a></li>
-    <li><a href="#products">Shop</a></li>
-    <li><a href="#">Lookbook</a></li>
-    <li><a href="#">About</a></li>
-  </ul>
-  <div class="nav-actions">
-    <button class="nav-icon">\ud83d\udd0d</button>
-    <button class="nav-icon" style="position:relative;">
-      \ud83d\udecd\ufe0f <span class="cart-badge" id="cartCount">0</span>
-    </button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <div class="hero-eyebrow">New Season 2025</div>
-    <h1 class="hero-title">
-      Adorn the<br>
-      <em>Extraordinary</em>
-    </h1>
-    <p class="hero-desc">
-      Curated accessories for the discerning individual. Each piece crafted with intent \u2014 where timeless elegance meets modern sensibility.
-    </p>
-    <div class="hero-ctas">
-      <a href="#products" class="btn-primary">Explore Collection</a>
-      <a href="#categories" class="btn-ghost">View Lookbook</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="hero-img-wrap">
-      <div class="hero-product-showcase">
-        <div class="product-icon-hero">\ud83d\udc5c</div>
-        <div class="hero-label">
-          <span>Featured Piece</span>
-          Signature Tote, Camel
-        </div>
-        <div class="hero-badge">
-          <div class="hero-badge-inner">NEW<br>IN</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-track">
-    <div class="marquee-item">Handcrafted Excellence</div>
-    <div class="marquee-item">Free Shipping Over $150</div>
-    <div class="marquee-item">Sustainable Materials</div>
-    <div class="marquee-item">Limited Editions</div>
-    <div class="marquee-item">30-Day Returns</div>
-    <div class="marquee-item">Artisanal Quality</div>
-    <div class="marquee-item">New Season Arrivals</div>
-    
+    transition: border-color 0.3s, trans
