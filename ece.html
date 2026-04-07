@@ -1,622 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURUM — Luxury Accessories</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --cream: #F5F0E8;
-    --warm-white: #FAF7F2;
-    --gold: #C9A84C;
-    --gold-light: #E8D5A3;
-    --deep: #1A1714;
-    --charcoal: #3A3530;
-    --muted: #8C8278;
-    --border: rgba(201,168,76,0.25);
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adorn | Minimalist Accessories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+        .serif { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white">
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    <div class="bg-stone-100 text-[10px] tracking-[0.2em] uppercase py-2 text-center font-semibold border-b">
+        Free Shipping on all orders over $75
+    </div>
 
-  html { scroll-behavior: smooth; }
+    <nav class="flex justify-between items-center px-8 py-6 border-b">
+        <div class="flex-1 hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+            <a href="#" class="hover:text-stone-500">Jewelry</a>
+            <a href="#" class="hover:text-stone-500">Leather Goods</a>
+        </div>
+        <h1 class="text-3xl font-light tracking-[0.3em] uppercase serif flex-1 text-center">ADORN</h1>
+        <div class="flex-1 flex justify-end space-x-6 text-sm">
+            <a href="#"><i class="fa-regular fa-user"></i></a>
+            <a href="#" class="relative">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="absolute -top-2 -right-2 bg-stone-800 text-white text-[8px] px-1 rounded-full">2</span>
+            </a>
+        </div>
+    </nav>
 
-  body {
-    background: var(--warm-white);
-    color: var(--deep);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-    cursor: none;
-  }
+    <section class="h-[60vh] bg-stone-50 flex items-center px-12 overflow-hidden">
+        <div class="max-w-xl">
+            <span class="text-stone-400 uppercase tracking-widest text-xs mb-4 block">Spring Collection 2026</span>
+            <h2 class="text-5xl md:text-6xl serif mb-6">The beauty of the <span class="italic text-stone-600">details.</span></h2>
+            <p class="text-stone-500 mb-8 leading-relaxed">Curated accessories designed to complement the modern wardrobe. Quality materials, timeless silhouettes.</p>
+            <button class="border border-black px-10 py-3 hover:bg-black hover:text-white transition-colors duration-300">Explore Now</button>
+        </div>
+    </section>
 
-  /* Custom cursor */
-  .cursor {
-    width: 10px; height: 10px;
-    background: var(--gold);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transition: transform 0.1s ease;
-    mix-blend-mode: multiply;
-  }
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9998;
-    transition: transform 0.25s ease, width 0.2s, height 0.2s;
-    mix-blend-mode: multiply;
-  }
-  body:hover .cursor-ring { opacity: 1; }
+    <section class="py-20 container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+            <div class="group">
+                <div class="aspect-[4/5] bg-stone-200 relative overflow-hidden flex items-center justify-center">
+                    <p class="text-stone-400 italic">Sunglasses Image</p>
+                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <button class="absolute bottom-0 left-0 right-0 bg-white/90 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 uppercase text-xs tracking-widest font-bold">Quick View</button>
+                </div>
+                <div class="mt-6 text-center">
+                    <h3 class="serif text-xl italic font-light">Tortoise Shell Frames</h3>
+                    <p class="text-stone-500 text-sm mt-1">$145.00</p>
+                </div>
+            </div>
 
-  /* NAVIGATION */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 28px 60px;
-    background: rgba(250,247,242,0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    animation: fadeDown 1s ease both;
-  }
-  @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:none; } }
+            <div class="group">
+                <div class="aspect-[4/5] bg-stone-200 relative overflow-hidden flex items-center justify-center">
+                    <p class="text-stone-400 italic">Gold Necklace Image</p>
+                    <button class="absolute bottom-0 left-0 right-0 bg-white/90 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 uppercase text-xs tracking-widest font-bold">Quick View</button>
+                </div>
+                <div class="mt-6 text-center text-red-800">
+                    <h3 class="serif text-xl italic font-light">18k Gold Link Chain</h3>
+                    <p class="text-sm mt-1 font-semibold">$320.00</p>
+                </div>
+            </div>
 
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.9rem;
-    font-weight: 300;
-    letter-spacing: 0.35em;
-    color: var(--deep);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--gold); }
+            <div class="group">
+                <div class="aspect-[4/5] bg-stone-200 relative overflow-hidden flex items-center justify-center">
+                    <p class="text-stone-400 italic">Leather Tote Image</p>
+                    <button class="absolute bottom-0 left-0 right-0 bg-white/90 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 uppercase text-xs tracking-widest font-bold">Quick View</button>
+                </div>
+                <div class="mt-6 text-center">
+                    <h3 class="serif text-xl italic font-light">The Essential Tote</h3>
+                    <p class="text-stone-500 text-sm mt-1">$450.00</p>
+                </div>
+            </div>
 
-  .nav-links {
-    display: flex; gap: 42px; list-style: none;
-  }
-  .nav-links a {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--charcoal);
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-    height: 1px; background: var(--gold);
-    transform: scaleX(0); transform-origin: right;
-    transition: transform 0.35s ease;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+        </div>
+    </section>
 
-  .nav-actions {
-    display: flex; align-items: center; gap: 22px;
-  }
-  .nav-icon {
-    font-size: 1rem; color: var(--charcoal);
-    background: none; border: none; cursor: none;
-    transition: color 0.3s; position: relative;
-  }
-  .nav-icon:hover { color: var(--gold); }
-  .cart-badge {
-    position: absolute; top: -6px; right: -8px;
-    width: 16px; height: 16px;
-    background: var(--gold); color: var(--warm-white);
-    border-radius: 50%; font-size: 0.55rem;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Jost', sans-serif; font-weight: 400;
-  }
+    <section class="bg-stone-900 text-white py-24 text-center px-6">
+        <h3 class="serif text-3xl italic mb-6">Designed for Longevity</h3>
+        <p class="max-w-xl mx-auto text-stone-400 font-light leading-loose">We believe in buying better, not more. Every piece in our collection is crafted by artisans with sustainable practices.</p>
+    </section>
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    padding-top: 90px;
-    position: relative; overflow: hidden;
-  }
-
-  .hero-text {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 60px 80px 80px;
-    position: relative; z-index: 2;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 24px;
-    animation: fadeUp 1s 0.3s ease both;
-    display: flex; align-items: center; gap: 14px;
-  }
-  .hero-eyebrow::before {
-    content: ''; width: 40px; height: 1px; background: var(--gold);
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.5rem, 6vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--deep);
-    animation: fadeUp 1s 0.45s ease both;
-  }
-  .hero-title em {
-    font-style: italic; color: var(--gold);
-    display: block;
-  }
-
-  .hero-desc {
-    margin-top: 28px;
-    font-size: 0.9rem; line-height: 1.85;
-    color: var(--muted); max-width: 420px;
-    animation: fadeUp 1s 0.6s ease both;
-  }
-
-  .hero-ctas {
-    margin-top: 48px;
-    display: flex; gap: 20px; align-items: center;
-    animation: fadeUp 1s 0.75s ease both;
-  }
-
-  .btn-primary {
-    background: var(--deep); color: var(--cream);
-    border: none; padding: 16px 40px;
-    font-family: 'Jost', sans-serif; font-size: 0.72rem;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    cursor: none; transition: background 0.3s, transform 0.2s;
-    text-decoration: none; display: inline-block;
-  }
-  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
-
-  .btn-ghost {
-    background: transparent; color: var(--charcoal);
-    border: 1px solid var(--border); padding: 15px 36px;
-    font-family: 'Jost', sans-serif; font-size: 0.72rem;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    cursor: none; transition: border-color 0.3s, color 0.3s;
-    text-decoration: none; display: inline-block;
-  }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-
-  .hero-visual {
-    position: relative; overflow: hidden;
-    animation: fadeIn 1.2s 0.2s ease both;
-  }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:none; } }
-
-  .hero-img-wrap {
-    width: 100%; height: 100%;
-    background: var(--cream);
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .hero-product-showcase {
-    width: 75%; aspect-ratio: 3/4;
-    background: linear-gradient(145deg, #E8DFD0 0%, #D4C4A8 40%, #BFA882 100%);
-    position: relative;
-    box-shadow: 30px 30px 80px rgba(26,23,20,0.15);
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-  }
-
-  .product-icon-hero {
-    font-size: 8rem; opacity: 0.35;
-    filter: sepia(1) saturate(0.5);
-    animation: floatAnim 6s ease-in-out infinite;
-  }
-  @keyframes floatAnim {
-    0%, 100% { transform: translateY(0) rotate(-3deg); }
-    50% { transform: translateY(-18px) rotate(3deg); }
-  }
-
-  .hero-label {
-    position: absolute; bottom: 40px; left: 40px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; color: var(--charcoal);
-  }
-  .hero-label span { display: block; font-size: 0.68rem; font-family: 'Jost'; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
-
-  .hero-badge {
-    position: absolute; top: 40px; right: -20px;
-    width: 100px; height: 100px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: var(--warm-white);
-    font-family: 'Cormorant Garamond', serif;
-    animation: spinBadge 20s linear infinite;
-  }
-  @keyframes spinBadge { to { transform: rotate(360deg); } }
-  .hero-badge-inner {
-    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold); text-align: center; line-height: 1.6;
-    animation: counterSpin 20s linear infinite;
-  }
-  @keyframes counterSpin { to { transform: rotate(-360deg); } }
-
-  /* MARQUEE */
-  .marquee-section {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 0;
-    overflow: hidden; background: var(--cream);
-  }
-  .marquee-track {
-    display: flex; gap: 0;
-    animation: marquee 22s linear infinite;
-    white-space: nowrap;
-  }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .marquee-item {
-    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--muted); padding: 0 40px;
-    display: flex; align-items: center; gap: 40px;
-  }
-  .marquee-item::after { content: '✦'; color: var(--gold); font-size: 0.5rem; }
-
-  /* SECTION HEADER */
-  .section-header {
-    text-align: center; margin-bottom: 64px;
-  }
-  .section-eyebrow {
-    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 16px;
-    display: flex; align-items: center; justify-content: center; gap: 14px;
-  }
-  .section-eyebrow::before, .section-eyebrow::after {
-    content: ''; width: 30px; height: 1px; background: var(--gold);
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    font-weight: 300; color: var(--deep);
-    line-height: 1.15;
-  }
-  .section-title em { font-style: italic; color: var(--gold); }
-
-  /* CATEGORIES */
-  .categories {
-    padding: 110px 80px;
-  }
-
-  .cat-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 16px;
-  }
-
-  .cat-card {
-    position: relative; overflow: hidden;
-    cursor: none;
-    background: var(--cream);
-  }
-  .cat-card:first-child {
-    grid-row: span 2;
-  }
-
-  .cat-card-inner {
-    height: 100%;
-    min-height: 260px;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 36px;
-    background: linear-gradient(to top, rgba(26,23,20,0.6) 0%, transparent 60%);
-    position: relative; z-index: 2;
-  }
-  .cat-card:first-child .cat-card-inner { min-height: 560px; }
-
-  .cat-bg {
-    position: absolute; inset: 0; z-index: 1;
-    transition: transform 0.6s ease;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 5rem;
-  }
-  .cat-card:first-child .cat-bg { font-size: 9rem; }
-  .cat-card:hover .cat-bg { transform: scale(1.06); }
-
-  .cat-bg-1 { background: linear-gradient(135deg, #C9A84C22, #8B6914); }
-  .cat-bg-2 { background: linear-gradient(135deg, #3A353022, #5C4033); }
-  .cat-bg-3 { background: linear-gradient(135deg, #C9A84C11, #A89060); }
-  .cat-bg-4 { background: linear-gradient(135deg, #1A171422, #3A3530); }
-  .cat-bg-5 { background: linear-gradient(135deg, #C9A84C15, #7A6040); }
-
-  .cat-tag {
-    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold-light); margin-bottom: 8px;
-  }
-  .cat-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.9rem; font-weight: 300;
-    color: var(--warm-white); line-height: 1.1;
-  }
-  .cat-card:first-child .cat-name { font-size: 2.8rem; }
-  .cat-count {
-    font-size: 0.7rem; color: rgba(245,240,232,0.6);
-    margin-top: 6px; letter-spacing: 0.1em;
-  }
-
-  .cat-arrow {
-    position: absolute; top: 28px; right: 28px; z-index: 3;
-    width: 36px; height: 36px; border: 1px solid rgba(245,240,232,0.3);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--warm-white); font-size: 0.8rem;
-    opacity: 0; transform: scale(0.8);
-    transition: opacity 0.3s, transform 0.3s;
-  }
-  .cat-card:hover .cat-arrow { opacity: 1; transform: scale(1); }
-
-  /* FEATURED PRODUCTS */
-  .products {
-    padding: 110px 80px;
-    background: var(--cream);
-  }
-
-  .filter-bar {
-    display: flex; gap: 8px; justify-content: center;
-    margin-bottom: 60px;
-  }
-  .filter-btn {
-    padding: 9px 24px;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-    background: transparent; border: 1px solid var(--border);
-    color: var(--muted); cursor: none;
-    transition: all 0.3s;
-  }
-  .filter-btn.active, .filter-btn:hover {
-    background: var(--deep); color: var(--cream); border-color: var(--deep);
-  }
-
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
-  }
-
-  .product-card {
-    background: var(--warm-white);
-    position: relative;
-    transition: transform 0.4s ease;
-  }
-  .product-card:hover { transform: translateY(-8px); }
-
-  .product-img {
-    aspect-ratio: 3/4;
-    background: var(--cream);
-    position: relative; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .product-emoji {
-    font-size: 4.5rem;
-    transition: transform 0.4s ease;
-    filter: sepia(0.3);
-  }
-  .product-card:hover .product-emoji { transform: scale(1.12) rotate(5deg); }
-
-  .product-overlay {
-    position: absolute; inset: 0;
-    background: rgba(26,23,20,0.04);
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .product-card:hover .product-overlay { opacity: 1; }
-
-  .overlay-btn {
-    background: var(--warm-white); border: none;
-    width: 42px; height: 42px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    cursor: none; font-size: 0.95rem;
-    transform: translateY(10px); transition: transform 0.3s, background 0.3s;
-    box-shadow: 0 4px 20px rgba(26,23,20,0.12);
-  }
-  .product-card:hover .overlay-btn { transform: translateY(0); }
-  .overlay-btn:hover { background: var(--gold); }
-  .overlay-btn:nth-child(2) { transition-delay: 0.05s; }
-
-  .product-tag-new {
-    position: absolute; top: 16px; left: 16px;
-    background: var(--gold); color: var(--cream);
-    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-    padding: 5px 12px;
-  }
-  .product-tag-sale {
-    position: absolute; top: 16px; left: 16px;
-    background: var(--deep); color: var(--cream);
-    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-    padding: 5px 12px;
-  }
-
-  .wishlist-btn {
-    position: absolute; top: 16px; right: 16px;
-    background: transparent; border: none;
-    font-size: 1.1rem; cursor: none;
-    transition: transform 0.2s;
-  }
-  .wishlist-btn:hover { transform: scale(1.25); }
-
-  .product-info { padding: 20px 0 8px; }
-  .product-brand {
-    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 6px;
-  }
-  .product-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem; font-weight: 400;
-    color: var(--deep); margin-bottom: 10px; line-height: 1.3;
-  }
-  .product-price {
-    display: flex; align-items: center; gap: 10px;
-  }
-  .price-current {
-    font-size: 0.95rem; font-weight: 400; color: var(--charcoal);
-  }
-  .price-old {
-    font-size: 0.8rem; color: var(--muted); text-decoration: line-through;
-  }
-
-  .add-to-cart {
-    width: 100%; margin-top: 16px;
-    background: transparent; border: 1px solid var(--border);
-    padding: 11px;
-    font-family: 'Jost', sans-serif; font-size: 0.65rem;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--charcoal); cursor: none;
-    transition: all 0.3s;
-    opacity: 0; transform: translateY(8px);
-    transition: opacity 0.3s, transform 0.3s, background 0.3s, color 0.3s;
-  }
-  .product-card:hover .add-to-cart { opacity: 1; transform: none; }
-  .add-to-cart:hover { background: var(--deep); color: var(--cream); border-color: var(--deep); }
-
-  /* EDITORIAL STRIP */
-  .editorial {
-    padding: 0 80px 110px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid var(--border);
-    margin: 0 80px;
-  }
-
-  .editorial-text {
-    padding: 80px 60px 80px 0;
-    border-right: 1px solid var(--border);
-    display: flex; flex-direction: column; justify-content: center;
-  }
-
-  .editorial-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 300; font-style: italic;
-    line-height: 1.5; color: var(--deep);
-    margin-bottom: 32px;
-  }
-  .editorial-quote::before { content: '\201C'; color: var(--gold); font-size: 4rem; line-height: 0; vertical-align: -1.2rem; margin-right: 8px; }
-
-  .editorial-author {
-    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 40px;
-  }
-
-  .editorial-visual {
-    padding: 80px 0 80px 60px;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .editorial-img-block {
-    width: 80%;
-    aspect-ratio: 4/5;
-    background: linear-gradient(145deg, #D4C4A8, #A89060);
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    box-shadow: 20px 20px 60px rgba(26,23,20,0.1);
-  }
-  .editorial-img-block::after {
-    content: 'SS 2025'; position: absolute;
-    bottom: -14px; right: -14px;
-    background: var(--deep); color: var(--cream);
-    padding: 14px 22px; font-size: 0.6rem; letter-spacing: 0.3em;
-    text-transform: uppercase; font-family: 'Jost';
-  }
-  .editorial-emoji { font-size: 6rem; filter: sepia(0.4); }
-
-  /* NEWSLETTER */
-  .newsletter {
-    background: var(--deep);
-    padding: 90px 80px;
-    text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .newsletter::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      45deg, transparent, transparent 40px,
-      rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 41px
-    );
-  }
-
-  .newsletter-eyebrow {
-    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 20px;
-    position: relative; z-index: 2;
-  }
-  .newsletter-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 300; color: var(--cream);
-    margin-bottom: 14px; line-height: 1.2;
-    position: relative; z-index: 2;
-  }
-  .newsletter-title em { font-style: italic; color: var(--gold); }
-  .newsletter-sub {
-    font-size: 0.85rem; color: rgba(245,240,232,0.5);
-    margin-bottom: 44px; position: relative; z-index: 2;
-  }
-  .newsletter-form {
-    display: flex; justify-content: center; gap: 0;
-    position: relative; z-index: 2; max-width: 480px; margin: 0 auto;
-  }
-  .newsletter-form input {
-    flex: 1; padding: 17px 24px;
-    background: rgba(245,240,232,0.08);
-    border: 1px solid rgba(201,168,76,0.3); border-right: none;
-    color: var(--cream); font-family: 'Jost'; font-size: 0.8rem;
-    outline: none;
-    transition: border-color 0.3s;
-  }
-  .newsletter-form input::placeholder { color: rgba(245,240,232,0.3); letter-spacing: 0.1em; }
-  .newsletter-form input:focus { border-color: var(--gold); }
-  .newsletter-form button {
-    padding: 17px 32px;
-    background: var(--gold); border: none; color: var(--deep);
-    font-family: 'Jost'; font-size: 0.65rem; letter-spacing: 0.22em;
-    text-transform: uppercase; cursor: none;
-    transition: background 0.3s;
-  }
-  .newsletter-form button:hover { background: var(--gold-light); }
-
-  /* FOOTER */
-  footer {
-    padding: 70px 80px 40px;
-    border-top: 1px solid var(--border);
-  }
-  .footer-top {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px; margin-bottom: 60px;
-  }
-  .footer-brand .nav-logo { font-size: 1.6rem; display: block; margin-bottom: 18px; text-decoration: none; }
-  .footer-tagline {
-    font-size: 0.82rem; line-height: 1.8; color: var(--muted);
-    max-width: 280px;
-  }
-  .footer-col h4 {
-    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--deep); margin-bottom: 22px; font-weight: 500;
-  }
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 12px; }
-  .footer-col ul li a {
-    font-size: 0.82rem; color: var(--muted); text-decoration: none;
-    transition: color 0.3s;
-  }
-  .footer-col ul li a:hover { color: var(--gold); }
-
-  .footer-bottom {
-    border-top: 1px solid var(--border); padding-top: 28px;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer-copy { font-size: 0.72rem; color: var(--muted); }
-  .footer-socials { display: flex; gap: 18px; }
-  .social-link {
-    width: 34px; height: 34px; border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    text-decoration: none; font-size: 0.85rem;
-    transition: border-color 0.3s, trans
+</body>
+</html>
